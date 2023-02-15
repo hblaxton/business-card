@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+    }
+  </style>
+  <title>business-card</title>
+</head>
+
+<body>
+  <div class="buttons">
+    <button class="duplicate">Duplicate last card</button>
+    <button class="modifytitle">Change Name</button>
+    <button id="bg" class="button">Change Background</button>
+    <button id="deletelastcard" class="button">Delete</button>
+    <button data-toggle-btn>Toggle description</button>
+    </div>
+    <div id= "app">
+  <business-card></business-card>
+</div>
+  <script type="module" src="./src/business-card.js"></script>
+  <script>
+    const container = document.querySelector(".container");
+const bg = document.querySelector("#bg");
+const details = document.querySelector('summary');
+
+
+// toggle the 1ST instance of the stats
+document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
+  const details = document.querySelector('business-card').shadowRoot.querySelector('details');
+  console.log(details);
+  if (details.getAttribute('open')) {
+    details.removeAttribute('open');
+  }
+  else {
+    details.setAttribute('open','open');    
+  }
+});
+
+// duplicate the 1st item
+document.querySelector('.duplicate').addEventListener('click', function(e) {
+  const itemToClone = document.querySelector('business-card').cloneNode();
+  document.querySelector('#app').appendChild(itemToClone);
+});
+
+document.querySelector('.button').addEventListener("click", (e) => {
+  const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  container.style.backgroundColor = randomColor;
+});
+ 
+
+  
+
+// modify name of 1st item
+document.querySelector('.modifytitle').addEventListener('click', function(e) {
+  let name = prompt("Rename the company");
+  if (name) {
+    document.querySelector('business-card').name = name;
+  }
+});
+
+// delete the last item
+document.querySelector('#deletelastcard').addEventListener('click', function(e) {
+  let wantsTo = confirm("Are you so sure?");
+  if (wantsTo) {
+    if (document.querySelector('#app :last-child') !== document.querySelector('business-card')) {
+      document.querySelector('#app :last-child').remove();      
+    }
+    else {
+      alert("YOU CAN NOT DELETE OUR TREE");
+    }
+  }
+});
+  </script>
+</body>
+
+</html>
