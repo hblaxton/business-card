@@ -127,12 +127,7 @@ export class BusinessCard extends LitElement {
 </div>
 <details class="details">
 <summary>Description</summary>
-  <div>
-    <ul>
-      <li>A tree as beautiful as this one should be cut down</li>
-      <li>Trees!</li>
-      </ul>
-    </div>
+  <slot> </slot>
   </details>
   </div>
   </div>
