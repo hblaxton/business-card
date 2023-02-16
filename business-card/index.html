@@ -23,17 +23,18 @@
   <div class="buttons">
     <button class="duplicate">Duplicate last card</button>
     <button class="modifytitle">Change Name</button>
-    <button id="bg" class="button">Change Background</button>
+    <button class="changecolor">Change Background</button>
     <button id="deletelastcard" class="button">Delete</button>
     <button data-toggle-btn>Toggle description</button>
     </div>
     <div id= "app">
-  <business-card></business-card>
+  <business-card>
+    
+  </business-card>
 </div>
   <script type="module" src="./src/business-card.js"></script>
   <script>
-    const container = document.querySelector(".container");
-const bg = document.querySelector("#bg");
+
 const details = document.querySelector('summary');
 
 
@@ -55,10 +56,13 @@ document.querySelector('.duplicate').addEventListener('click', function(e) {
   document.querySelector('#app').appendChild(itemToClone);
 });
 
-document.querySelector('.button').addEventListener("click", (e) => {
-  const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  container.style.backgroundColor = randomColor;
+document.querySelector('.changecolor').addEventListener("click", function(e) {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random()* 16)];
+  }
+  document.querySelector('buisness-card').shadowRoot.querySelector('.container').style.backgroundColor = color;
 });
  
 
