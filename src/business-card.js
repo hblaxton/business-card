@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 const tree = new URL('../assets/tree.jpg', import.meta.url).href
 
 export class BusinessCard extends LitElement {
@@ -115,7 +115,9 @@ export class BusinessCard extends LitElement {
 </div>
 <div class="wrapper">
 <div class="container">
-<img class="image" src="${tree}"/>
+<!-- <img class="image" src="${tree}"/> -->
+<meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg">
+</meme-maker>
 <div class="header">
   <h3>${this.name}</h3>
   <h4>${this.imagedescript}</h4>
