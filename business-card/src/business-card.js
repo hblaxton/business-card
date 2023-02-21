@@ -115,22 +115,25 @@ export class BusinessCard extends LitElement {
   render() {
     return html`
    
-</div>
-<div class="wrapper">
-<div class="container">
+  <div>
+  <div class="wrapper">
+  <div class="container">
 <!-- <img class="image" src="${tree}"/> -->
-<meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg">
-</meme-maker>
-<div class="header">
+  <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg">
+  </meme-maker>
+    <div class="header">
   <h3>${this.name}</h3>
   <h4>${this.imagedescript}</h4>
-</div>
+    </div>
 <details class="details">
 <summary>Description</summary>
   <slot> </slot>
   </details>
   </div>
   </div>
+  </div>
+  
+
     `;
   }
 }
