@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/business-card.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BusinessCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "default": "'My app'",
+              "privacy": "public",
+              "attribute": "header"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "business-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "business-card",
+          "declaration": {
+            "name": "BusinessCard",
+            "module": "src/business-card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "stories/business-card.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "App"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "stories/business-card.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "stories/business-card.stories.js"
+          }
+        }
+      ]
+    }
+  ]
+}
