@@ -17,31 +17,30 @@ export class BusinessCard extends LitElement {
           reflect: true,
           attribute: 'accent-color'
   
-        }
+        },
+    meme:{
+      type: String,
+    }
+
       
     }
   }
-  constructor() {
-    super();
-    this.name = "Landscaping Business";
-    this.imagedescript = "A beautiful green tree";
-    this.accentColor = null;
-  }
+  
 
   static get styles() {
     return css`
-    :host([accent-color="yellow"]) .app {
-      background-color: blue;
+    :host([accent-color="sky"]) .wrapper {
+      background-color: var(--business-card-accent-color, blue);
       color: white;
 
     }
-    :host([accent-color="green"]) .app {
-      background-color: blue;
+    :host([accent-color="earth"]) .wrapper {
+      background-color: var(--business-card-accent-color, green);
       color: white;
 
     }
-    :host([accent-color="orange"]) .app {
-      background-color: blue;
+    :host([accent-color="cheeto"]) .wrapper {
+      background-color: var(--business-card-accent-color, orange);
       color: white;
 
     }
@@ -132,18 +131,26 @@ export class BusinessCard extends LitElement {
     `;
 
   }
-
+  constructor() {
+    super();
+    this.meme = null;
+    this.name = "Landscaping Business";
+    this.imagedescript = "A beautiful green tree";
+    this.accentColor = null;
+  }
   
 
   render() {
     return html`
    
-  <div>
+  <div >
   <div class="wrapper">
   <div class="container">
   
 <!-- <img class="image" src="${tree}"/> -->
-  <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg">
+  <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"
+  part="meme-maker"
+  >
   </meme-maker>
     <div class="header">
   <h3>${this.name}</h3>

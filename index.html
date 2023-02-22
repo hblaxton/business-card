@@ -15,6 +15,20 @@
       font-family: sans-serif;
       background-color: #ededed;
     }
+    business-card[accent-color="earth"]{
+      --business-card-accent-color: brown;
+    }
+    business-card[accent-color="sky"]{
+      --business-card-accent-color: pink;
+    }
+    business-card[accent-color="cheeto"]{
+      --business-card-accent-color: purple;
+    }
+    business-card::part(card){
+      margin: 100px;
+      background-color: aqua;
+      padding: 50px;
+    }
   </style>
   <title>business-card</title>
 </head>
@@ -69,7 +83,7 @@ document.querySelector('.duplicate').addEventListener('click', function(e) {
 
 const changecolor = document.querySelector(".changecolor");
 changecolor.addEventListener('click', function(e) {
-  const colors = ["yellow", "green", "orange"]
+  const colors = ["sky", "earth", "cheeto"]
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   document.querySelector('business-card').accentColor = randomColor;
 
