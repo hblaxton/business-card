@@ -60,19 +60,18 @@
   <script type="module" src="./src/business-card.js"></script>
   <script>
 
+    document.body.addEventListener('opened-changed',(e)=> {
+      console.log('opened-changed', e.details, e.target);
+    })
+
 const details = document.querySelector('summary');
 
 
 // toggle the 1ST instance of the stats
 document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
-  const details = document.querySelector('business-card').shadowRoot.querySelector('details');
-  console.log(details);
-  if (details.getAttribute('open')) {
-    details.removeAttribute('open');
-  }
-  else {
-    details.setAttribute('open','open');    
-  }
+const card = document.querySelector('business-card');
+card.opened = !card.opened;
+ 
 });
 
 // duplicate the 1st item
