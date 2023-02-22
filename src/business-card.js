@@ -20,7 +20,11 @@ export class BusinessCard extends LitElement {
         },
     meme:{
       type: String,
-    }
+    },
+    opened:{ type: Boolean, 
+      reflect: true
+
+    },
 
       
     }
@@ -137,8 +141,29 @@ export class BusinessCard extends LitElement {
     this.name = "Landscaping Business";
     this.imagedescript = "A beautiful green tree";
     this.accentColor = null;
+    this.opened = false;
   }
   
+  toggleEvent(e){
+    const state = this.shadowRoot.querySelector('details').getAttribute('open')=== '' ? true : false;
+    this.opened = state;
+    console.log(this.opened);
+  }
+  updated(changedProperties){
+    changedProperties.forEach((oldValue,propName)=> {
+      if (propName == 'opened'){
+        this.dispatchEvent(new CustomEvent('opened-changed',{
+          composed: true,
+          bubbles: true,
+          cancelable: true, 
+
+          detail: {
+            value: this[propName] } 
+          }));
+        console.log(`${propName} changed. oldValue: ${oldValue}`);
+      }
+    });
+  }
 
   render() {
     return html`
@@ -157,7 +182,7 @@ export class BusinessCard extends LitElement {
   <h4>${this.imagedescript}</h4>
     </div>
     
-<details class="details">
+<details class="details" .open= "${this.opened}" @toggle = "${this.toggleEvent}">
 <summary>Description</summary>
   <slot> </slot>
   </details>
