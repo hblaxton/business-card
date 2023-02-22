@@ -10,14 +10,41 @@ export class BusinessCard extends LitElement {
         reflect: true
       },
       imagedescript: {
-        type: String,
+        type: String},
 
-      }
+        accentColor: {
+          type: String,
+          reflect: true,
+          attribute: 'accent-color'
+  
+        }
+      
     }
+  }
+  constructor() {
+    super();
+    this.name = "Landscaping Business";
+    this.imagedescript = "A beautiful green tree";
+    this.accentColor = null;
   }
 
   static get styles() {
     return css`
+    :host([accent-color="yellow"]) .app {
+      background-color: blue;
+      color: white;
+
+    }
+    :host([accent-color="green"]) .app {
+      background-color: blue;
+      color: white;
+
+    }
+    :host([accent-color="orange"]) .app {
+      background-color: blue;
+      color: white;
+
+    }
 
     .wrapper {
       width: 400px;
@@ -106,11 +133,7 @@ export class BusinessCard extends LitElement {
 
   }
 
-  constructor() {
-    super();
-    this.name = "Landscaping Business";
-    this.imagedescript = "A beautiful green tree";
-  }
+  
 
   render() {
     return html`
@@ -118,6 +141,7 @@ export class BusinessCard extends LitElement {
   <div>
   <div class="wrapper">
   <div class="container">
+  
 <!-- <img class="image" src="${tree}"/> -->
   <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg">
   </meme-maker>
@@ -125,6 +149,7 @@ export class BusinessCard extends LitElement {
   <h3>${this.name}</h3>
   <h4>${this.imagedescript}</h4>
     </div>
+    
 <details class="details">
 <summary>Description</summary>
   <slot> </slot>
@@ -132,6 +157,7 @@ export class BusinessCard extends LitElement {
   </div>
   </div>
   </div>
+  
   
 
     `;

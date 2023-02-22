@@ -66,14 +66,22 @@ document.querySelector('.duplicate').addEventListener('click', function(e) {
   document.querySelector('#app').appendChild(itemToClone);
 });
 
-document.querySelector('.changecolor').addEventListener("click", function(e) {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random()* 16)];
-  }
-  document.querySelector('buisness-card').shadowRoot.querySelector('.wrapper').style.backgroundColor = color;
+const changecolor = document.querySelector(".changecolor");
+changecolor.addEventListener('click', function(e) {
+  const colors = ["yellow", "green", "orange"]
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.querySelector('buisness-card').accentColor = randomColor;
+
 });
+
+// document.querySelector('.changecolor').addEventListener("click", function(e) {
+ // var letters = '0123456789ABCDEF';
+  //var color = '#';
+  //for (var i = 0; i < 6; i++) {
+  //  color += letters[Math.floor(Math.random()* 16)];
+ // }
+  //// document.querySelector('buisness-card').shadowRoot.querySelector('.wrapper').style.backgroundColor = color;
+//});
  
 
   
