@@ -13,19 +13,49 @@
           "members": [
             {
               "kind": "field",
-              "name": "header",
+              "name": "name",
               "type": {
                 "text": "string"
               },
-              "default": "'My app'",
+              "default": "\"Landscaping Business\"",
               "privacy": "public",
-              "attribute": "header"
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "imagedescript",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"A beautiful green tree\"",
+              "privacy": "public",
+              "attribute": "imagedescript"
+            },
+            {
+              "kind": "field",
+              "name": "accentColor",
+              "type": {
+                "text": "null"
+              },
+              "default": "null",
+              "privacy": "public",
+              "attribute": "accent-color",
+              "reflects": true
             }
           ],
           "attributes": [
             {
-              "name": "header",
-              "fieldName": "header"
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "imagedescript",
+              "fieldName": "imagedescript"
+            },
+            {
+              "name": "accent-color",
+              "fieldName": "accentColor"
             }
           ],
           "superclass": {
@@ -37,6 +67,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "BusinessCard",
+          "declaration": {
+            "name": "BusinessCard",
+            "module": "src/business-card.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "business-card",
