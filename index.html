@@ -61,8 +61,11 @@
   <script>
 
     document.body.addEventListener('opened-changed',(e)=> {
+      if(e.target === document.querySelector('business-card')){
       console.log('opened-changed', e.details, e.target);
-    })
+      document.querySelector('button[data-toggle-btn]').innerText = e.detail.value ? 'Hide Details' : 'Show Details';
+      }
+    });
 
 const details = document.querySelector('summary');
 
