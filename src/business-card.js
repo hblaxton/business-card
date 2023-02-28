@@ -173,9 +173,10 @@ export class BusinessCard extends LitElement {
   <div class="container">
   
 <!-- <img class="image" src="${tree}"/> -->
-  <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"
-  part="meme-maker"
-  >
+  <meme-maker image-url="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg" top-text="Super sweet tree" bottom-text="lit" >
+
+  </meme-maker>
+
   </meme-maker>
     <div class="header">
   <h3>${this.name}</h3>
