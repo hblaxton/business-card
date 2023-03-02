@@ -115,8 +115,8 @@ document.querySelector('.modifytitle').addEventListener('click', function(e) {
 document.querySelector('#deletelastcard').addEventListener('click', function(e) {
   let wantsTo = confirm("Are you so sure?");
   if (wantsTo) {
-    if (document.querySelector('#app :last-child') !== document.querySelector('business-card')) {
-      document.querySelector('#app :last-child').remove();      
+    if (document.querySelector('#app business-card:last-child') !== document.querySelector('business-card')) {
+      document.querySelector('#app business-card:last-child').remove();      
     }
     else {
       alert("YOU CAN NOT DELETE OUR TREE");
