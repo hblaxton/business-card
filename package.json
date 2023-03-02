@@ -1,8 +1,8 @@
 {
-  "name": "business-card-123",
+  "name": "business-card-3",
   "description": "Webcomponent business-card following open-wc recommendations",
   "license": "MIT",
-  "author": "business-card-123",
+  "author": "business-card",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
